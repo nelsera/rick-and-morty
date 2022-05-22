@@ -1,20 +1,22 @@
 import React, {FC} from 'react';
 import {Link} from 'react-router-dom';
 
-import {Container, Title} from './styles';
+import {BlackHole, Button, Container, Title} from './styles';
 
 export const Home: FC = () => (
 	<Container>
 		<Title>Try & search for your favorite character and his status!</Title>
 
-		<div className='button'>
+		<Button>
 			<Link to='/characters'>Characters</Link>
-		</div>
+		</Button>
 
-		<img
-			src={process.env.PUBLIC_URL + '/rick-and-morty-symbol.png'}
-			alt='Rick and Morty'
-			style={{minWidth: '200px'}}
-		/>
+		<BlackHole>
+			<img
+				src={process.env.PUBLIC_URL + '/rick-and-morty-symbol.png'}
+				alt='Rick and Morty'
+			/>
+		</BlackHole>
+
 	</Container>
 );
