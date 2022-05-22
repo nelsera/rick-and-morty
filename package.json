@@ -23,7 +23,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.{ts,tsx}",
     "lint-fix": "eslint --fix src/**/*.{ts,tsx}",
-    "prepare": "husky install"
+    "prepare": "husky install",
+		"release": "standard-version"
   },
   "browserslist": {
     "production": [
@@ -46,6 +47,7 @@
     "eslint-config-xo": "^0.41.0",
     "eslint-plugin-react": "^7.30.0",
     "husky": "^8.0.1",
-    "lint-staged": "^12.4.1"
+    "lint-staged": "^12.4.1",
+    "standard-version": "^9.5.0"
   }
 }
