@@ -9,16 +9,15 @@ export type Composition = {
 export type CardProps = {
 	children: ReactNode
 	cover: ReactNode
-	width: number
 }
 
 export const Card: Composition & FC<CardProps> = ({
 	children,
 	cover,
-	width,
 }: CardProps) => (
-	<Container style={{width}}>
+	<Container>
 		{cover}
+
 		{children}
 	</Container>
 );
@@ -31,6 +30,7 @@ export type MetaProps = {
 export const Meta: FC<MetaProps> = ({title, description}) => (
 	<Info>
 		<Title>{title}</Title>
+
 		<Description>{description}</Description>
 	</Info>
 );

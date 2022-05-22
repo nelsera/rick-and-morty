@@ -3,7 +3,9 @@ import styled from 'styled-components';
 export const Container = styled.div`
 	border: 1px solid #6ebf23;
 	color: white;
+	margin: 24px;
 	transition: box-shadow .3s,border-color .3s;
+	width: 300px;
 
 	img {
 		display: block;
