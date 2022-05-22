@@ -2,6 +2,10 @@
   "name": "rick-and-morty",
   "version": "0.1.0",
   "private": true,
+	"engines": {
+    "npm": "please-use-yarn",
+    "yarn": ">=1.22.17"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
