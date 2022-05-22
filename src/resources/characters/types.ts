@@ -1,5 +1,9 @@
-export type Params = {
+export type FetchCharactersParams = {
 	page: number
+}
+
+export type FetchCharacterParams = {
+	id: number
 }
 
 export type DataMeta = {
@@ -49,3 +53,21 @@ export type CharactersSuccess = {
 }
 
 export type CharactersResponse = CharactersError | CharactersSuccess
+
+export type CharacterError = {
+	dataSource: any
+	error: unknown
+	hasContent: boolean
+	hasError: boolean
+	isEmpty: boolean
+}
+
+export type CharacterSuccess = {
+	dataSource: Character
+	error: unknown
+	hasContent: boolean
+	hasError: boolean
+	isEmpty: boolean
+}
+
+export type CharacterResponse = CharacterError | CharacterSuccess

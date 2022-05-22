@@ -5,7 +5,11 @@ export const GlobalStyle = createGlobalStyle`
     background-color: #242221;
 		font-family: 'Roboto';
 		margin: 0;
-		overflow-y: scroll;
+		min-width: 375px;
+
+		@media (min-width: 768px) {
+			overflow-y: scroll;
+		}
   }
 `;
 

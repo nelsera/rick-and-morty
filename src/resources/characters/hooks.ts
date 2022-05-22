@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 
-import {fetchCharacters} from './services';
-import {CharactersResponse} from './types';
+import {fetchCharacter, fetchCharacters} from './services';
+import {CharacterResponse, CharactersResponse, FetchCharacterParams} from './types';
 
 export const useCharacters = () => {
 	const [characters, setCharacters] = useState<CharactersResponse>({
@@ -22,4 +22,24 @@ export const useCharacters = () => {
 	}, []);
 
 	return characters;
+};
+
+export const useCharacter = ({id}: FetchCharacterParams) => {
+	const [character, setCharacter] = useState<CharacterResponse>({
+		dataSource: null,
+		error: null,
+		hasContent: false,
+		hasError: false,
+		isEmpty: true,
+	});
+
+	useEffect(() => {
+		(async () => {
+			const character: CharacterResponse = await fetchCharacter({id});
+
+			setCharacter(character);
+		})();
+	}, [id]);
+
+	return character;
 };

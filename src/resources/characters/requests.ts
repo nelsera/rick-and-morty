@@ -1,10 +1,14 @@
 import axios from 'axios';
 
-type FetchParams = {
-	page: number
-}
+import {FetchCharacterParams, FetchCharactersParams} from './types';
 
-export const fetchCharacters = ({page}: FetchParams) => axios.get(
-	'https://rickandmortyapi.com/api/character',
+export const baseUrl = 'https://rickandmortyapi.com/api';
+
+export const fetchCharacters = ({page}: FetchCharactersParams) => axios.get(
+	`${baseUrl}/character`,
 	{params: {page}},
+);
+
+export const fetchCharacter = ({id}: FetchCharacterParams) => axios.get(
+	`${baseUrl}/character/${id}`,
 );

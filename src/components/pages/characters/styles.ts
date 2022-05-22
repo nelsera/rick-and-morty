@@ -6,4 +6,8 @@ export const Container = styled.div`
 	justify-content: center;
 	margin: auto;
 	max-width: 1400px;
+
+	a {
+		text-decoration: none;
+	}
 `;
