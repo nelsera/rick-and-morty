@@ -2,7 +2,7 @@
   "name": "rick-and-morty",
   "version": "0.1.0",
   "private": true,
-	"engines": {
+  "engines": {
     "npm": "please-use-yarn",
     "yarn": ">=1.22.17"
   },
@@ -21,14 +21,14 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject",
     "lint": "eslint src/**/*.{ts,tsx}",
     "lint-fix": "eslint --fix src/**/*.{ts,tsx}",
     "prepare": "husky install",
-		"release": "standard-version"
+    "release": "standard-version"
   },
   "browserslist": {
     "production": [
@@ -52,6 +52,8 @@
     "eslint-plugin-react": "^7.30.0",
     "husky": "^8.0.1",
     "lint-staged": "^12.4.1",
+    "react-app-rewire-alias": "^1.1.7",
+    "react-app-rewired": "^2.2.1",
     "standard-version": "^9.5.0"
   }
 }
