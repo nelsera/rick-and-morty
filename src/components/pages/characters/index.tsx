@@ -9,29 +9,25 @@ import {Container} from './styles';
 export const Characters = () => {
 	const characters: CharactersResponse = useCharacters();
 
-	const renderCards = (characters: Character[]) => (
-		characters.map((character: Character) => (
-			<Card
-				key={character.id}
-				cover={
-					<img
-						alt={character.name}
-						src={character.image}
-					/>
-				}
-			>
-				<Card.Meta
-					title={character.name}
-					description={`${character.species}, ${character.status}`}
-				/>
-			</Card>
-		))
-	);
-
 	if (characters.hasContent) {
 		return (
 			<Container>
-				{renderCards(characters.dataSource)}
+				{characters.dataSource.map((character: Character) => (
+					<Card
+						key={character.id}
+						cover={
+							<img
+								alt={character.name}
+								src={character.image}
+							/>
+						}
+					>
+						<Card.Meta
+							title={character.name}
+							description={`${character.species}, ${character.status}`}
+						/>
+					</Card>
+				))}
 			</Container>
 		);
 	}

@@ -1,10 +1,14 @@
-import {createGlobalStyle} from 'styled-components';
+import styled, {createGlobalStyle} from 'styled-components';
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   body {
     background-color: #242221;
 		font-family: 'Roboto';
+		margin: 0;
+		overflow-y: scroll;
   }
 `;
 
-export default GlobalStyle;
+export const Container = styled.div`
+	padding-top: 80px;
+`;
