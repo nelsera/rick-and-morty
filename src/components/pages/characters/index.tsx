@@ -29,7 +29,12 @@ export const Characters = () => {
 	});
 
 	const handleCharactersChange = ({target}: ChangeEvent<HTMLSelectElement>) => {
-		setFilters((state: CharactersFilter) => ({...state, name: target.value}));
+		setFilters((state: CharactersFilter) => ({
+			...state,
+			lastPages: [],
+			name: target.value,
+			page: 1,
+		}));
 	};
 
 	const handleScroll = useCallback(() => {
