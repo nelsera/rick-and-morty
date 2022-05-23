@@ -4,7 +4,11 @@ import {Link} from 'react-router-dom';
 import {Card} from '~/components/pure/data-display/card';
 import {Search} from '~/components/pure/data-entry/search';
 import {useCharacters} from '~/resources/characters/hooks';
-import {Character, CharactersResponse} from '~/resources/characters/types';
+import {
+	Character,
+	CharactersFilter,
+	CharactersResponse,
+} from '~/resources/characters/types';
 
 import {
 	Characters as CharactersStyle,
@@ -13,7 +17,7 @@ import {
 } from './styles';
 
 export const Characters = () => {
-	const [filters, setFilters] = useState<any>({
+	const [filters, setFilters] = useState<CharactersFilter>({
 		lastPages: [],
 		name: '',
 		page: 1,
@@ -25,7 +29,7 @@ export const Characters = () => {
 	});
 
 	const handleCharactersChange = ({target}: ChangeEvent<HTMLSelectElement>) => {
-		setFilters((state: any) => ({...state, name: target.value}));
+		setFilters((state: CharactersFilter) => ({...state, name: target.value}));
 	};
 
 	const handleScroll = useCallback(() => {
@@ -34,9 +38,9 @@ export const Characters = () => {
 		) >= document.documentElement.scrollHeight;
 
 		if (bottom) {
-			setFilters((state: any) => ({
+			setFilters((state: CharactersFilter) => ({
 				...state,
-				lastPages: characters.dataSource,
+				lastPages: [...state.lastPages, ...characters.dataSource],
 				page: ++filters.page,
 			}));
 		}

@@ -5,7 +5,7 @@ export const Container = styled.div`
 	flex-direction: column;
 	margin: auto;
 	max-width: 1000px;
-	min-width: 375px;
+	min-width: 320px;
 
 	@-webkit-keyframes Pulse {
 		0% { -webkit-box-shadow: 0 0 1000px rgba(110, 191, 35,0.2); }
@@ -22,16 +22,20 @@ export const Container = styled.div`
 
 export const Title = styled.h1`
 	color: #6ebf23;
-	font-size: 3.75rem;
 	font-weight: 800;
 	letter-spacing: -0.00833em;
-	line-height: 1.2;
+	padding: 24px;
 	text-align: center;
+
+	@media (min-width: 768px) {
+		font-size: 3.75rem;
+		line-height: 1.2;
+	}
 `;
 
 export const BlackHole = styled.div`
-	width: 300px;
-	height: 300px;
+	width: 275px;
+	height: 275px;
 
 	@media (min-width: 768px) {
 		width: 550px;
@@ -48,8 +52,8 @@ export const BlackHole = styled.div`
 	animation: Pulse 3s infinite ease-in-out;
 
 	img {
-		margin: -35px -45px;
-		width: 375px;
+		margin: -10px -21px;
+    width: 300px;
 
 		@media (min-width: 768px) {
 			margin: -63px -90px;
@@ -63,14 +67,14 @@ export const Button = styled.div`
 	display: inline-block;
 	margin: auto;
 	position: relative;
-	width: 300px;
+	width: 250px;
 
 	a {
 		background-color: #6ebf23;
 		color: white;
 		display: block;
 		font-family: Helvetica, sans-serif;
-		font-size: 36px;
+		font-size: 30px;
 		font-weight: bold;
 		text-align:  center;
 		text-decoration: none;

@@ -5,8 +5,7 @@ export const GlobalStyle = createGlobalStyle`
     background-color: #242221;
 		font-family: 'Roboto';
 		margin: 0;
-		min-width: 375px;
-		overflow-x: hidden;
+		min-width: 320px;
 
 		@media (min-width: 768px) {
 			overflow-y: scroll;

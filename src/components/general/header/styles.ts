@@ -18,5 +18,7 @@ export const Container = styled.header`
 	height: 60px;
 	padding: 10px;
 	position: fixed;
+	top: 0;
+	left: 0;
 	width: 100%;
 `;

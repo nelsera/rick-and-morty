@@ -72,3 +72,9 @@ export type CharacterSuccess = {
 }
 
 export type CharacterResponse = CharacterError | CharacterSuccess
+
+export type CharactersFilter = {
+	lastPages: Character[],
+	name: string,
+	page: number
+}
