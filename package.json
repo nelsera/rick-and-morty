@@ -6,7 +6,7 @@
     "npm": "please-use-yarn",
     "yarn": ">=1.22.17"
   },
-	"homepage": "https://nelsera.github.io/rick-and-morty",
+  "homepage": "https://nelsera.github.io/rick-and-morty",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
@@ -33,7 +33,7 @@
     "lint-fix": "eslint --fix src/**/*.{ts,tsx}",
     "prepare": "husky install",
     "release": "standard-version",
-		"deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
@@ -59,9 +59,26 @@
     "eslint-plugin-react": "^7.30.0",
     "gh-pages": "^4.0.0",
     "husky": "^8.0.1",
+    "jest-mock-axios": "^4.6.1",
     "lint-staged": "^12.4.1",
     "react-app-rewire-alias": "^1.1.7",
     "react-app-rewired": "^2.2.1",
     "standard-version": "^9.5.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "~/(.*)": "<rootDir>/src/$1"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/public/"
+    ]
   }
 }

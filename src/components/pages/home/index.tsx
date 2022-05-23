@@ -14,7 +14,7 @@ export const Home: FC = () => (
 		<BlackHole>
 			<img
 				src={process.env.PUBLIC_URL + '/rick-and-morty-symbol.png'}
-				alt='Rick and Morty'
+				alt='Rick and Morty symbol'
 			/>
 		</BlackHole>
 

@@ -8,7 +8,7 @@ export const Header: FC = () => (
 		<Link to='/'>
 			<img
 				src={process.env.PUBLIC_URL + '/rick-and-morty-logo.png'}
-				alt='Rick and Morty'
+				alt='Rick and Morty logo'
 				height={60}
 			/>
 		</Link>
