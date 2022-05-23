@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {useParams} from 'react-router-dom';
 
-import {Profile} from '~/components/pures/data-display/profile';
+import {Profile} from '~/components/pure/data-display/profile';
 import {useCharacter} from '~/resources/characters/hooks';
 
 export const Character: FC = () => {

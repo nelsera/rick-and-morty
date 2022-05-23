@@ -1,40 +1,86 @@
-import React from 'react';
+import React, {ChangeEvent, useCallback, useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 
-import {Card} from '~/components/pures/data-display/card';
+import {Card} from '~/components/pure/data-display/card';
+import {Search} from '~/components/pure/data-entry/search';
 import {useCharacters} from '~/resources/characters/hooks';
 import {Character, CharactersResponse} from '~/resources/characters/types';
 
-import {Container} from './styles';
+import {
+	Characters as CharactersStyle,
+	Container,
+	Search as SearchStyle,
+} from './styles';
 
 export const Characters = () => {
-	const characters: CharactersResponse = useCharacters();
+	const [filters, setFilters] = useState<any>({
+		lastPages: [],
+		name: '',
+		page: 1,
+	});
 
-	if (characters.hasContent) {
-		return (
-			<Container>
-				{characters.dataSource.map((character: Character) => (
-					<Link
-						key={`character-${character.id}`}
-						to={`/characters/${character.id}`}>
-						<Card
-							cover={
-								<img
-									alt={character.name}
-									src={character.image}
-								/>
-							}
-						>
-							<Card.Meta
-								title={character.name}
-								description={`${character.species}, ${character.status}`}
-							/>
-						</Card>
-					</Link>
-				))}
-			</Container>
-		);
-	}
+	const characters: CharactersResponse = useCharacters({
+		name: filters.name,
+		page: filters.page,
+	});
 
-	return <div />;
+	const handleCharactersChange = ({target}: ChangeEvent<HTMLSelectElement>) => {
+		setFilters((state: any) => ({...state, name: target.value}));
+	};
+
+	const handleScroll = useCallback(() => {
+		const bottom = Math.ceil(
+			window.innerHeight + window.scrollY,
+		) >= document.documentElement.scrollHeight;
+
+		if (bottom) {
+			setFilters((state: any) => ({
+				...state,
+				lastPages: characters.dataSource,
+				page: ++filters.page,
+			}));
+		}
+	}, [filters.page, characters.dataSource]);
+
+	useEffect(() => {
+		window.addEventListener('scroll', handleScroll, {passive: true});
+
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	}, [handleScroll]);
+
+	const renderCharacters = (characters: Character[]) => (
+		characters.map((character: Character) => (
+			<Link
+				key={`character-${character.id}`}
+				to={`/characters/${character.id}`}>
+				<Card
+					cover={
+						<img
+							alt={character.name}
+							src={character.image}
+						/>
+					}
+				>
+					<Card.Meta
+						title={character.name}
+						description={`${character.species}, ${character.status}`}
+					/>
+				</Card>
+			</Link>
+		))
+	);
+
+	return (
+		<Container>
+			<SearchStyle>
+				<Search onChange={handleCharactersChange} />
+			</SearchStyle>
+
+			<CharactersStyle>
+				{renderCharacters([...filters.lastPages, ...characters.dataSource])}
+			</CharactersStyle>
+		</Container>
+	);
 };

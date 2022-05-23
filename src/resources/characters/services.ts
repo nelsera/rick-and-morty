@@ -12,9 +12,9 @@ import {
 } from './serializers';
 import {FetchCharacterParams, FetchCharactersParams} from './types';
 
-export const fetchCharacters = async ({page}: FetchCharactersParams) => {
+export const fetchCharacters = async ({name, page}: FetchCharactersParams) => {
 	try {
-		const characters: AxiosResponse = await fetchCharactersRequest({page});
+		const characters: AxiosResponse = await fetchCharactersRequest({name, page});
 
 		return handleCharactersSuccess(characters);
 	} catch (error) {

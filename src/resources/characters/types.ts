@@ -1,5 +1,6 @@
 export type FetchCharactersParams = {
-	page: number
+	name?: string
+	page?: number
 }
 
 export type FetchCharacterParams = {
