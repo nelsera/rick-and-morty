@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
 		font-family: 'Roboto';
 		margin: 0;
 		min-width: 375px;
+		overflow-x: hidden;
 
 		@media (min-width: 768px) {
 			overflow-y: scroll;
